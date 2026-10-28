@@ -6,7 +6,7 @@ $int =0;
 $int2 =1;
 
 var_dump(PHP_INT_MAX);
-var_dump(9223372036854775808);
+var_dump(922337203685478);
 
 var_dump($bool);
 var_dump($bool2);
