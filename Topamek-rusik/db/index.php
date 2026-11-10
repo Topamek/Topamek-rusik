@@ -15,11 +15,18 @@ if (isset($_POST['auth'])){
     die;
 }
 
-if (isset($_GET['do']) && $_GET['do'] == 'do-exit'){
+if (isset($_GET['do']) && $_GET['do'] == 'exit'){
     unset($_SESSION['user']);
     header("Location:index.php");
     die;
 }
+if (isset($_POST['add'])) {
+    save_message();
+    header("Location:index.php");
+    die;
+}
+// $messages = get_messages();
+
 
 
 
@@ -127,7 +134,7 @@ if (isset($_GET['do']) && $_GET['do'] == 'do-exit'){
         <!-- Отправка сообщения -->
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <p>Добро пожаловать,! <a href="?do-exit">Log out</a></p>
+            <p>Добро пожаловать,! <?= htmlspecialchars($_SESSION['user']['name']) ?> <a href="?do=exit">Log out</a></p>
         </div>
     </div>
 
@@ -145,16 +152,21 @@ if (isset($_GET['do']) && $_GET['do'] == 'do-exit'){
         </div>
     </form>
 
+    <?php endif ?>
 
+    <?php if (!empty($message)): ?>
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <hr>
+            <? foreach($messages as $message): ?>
             <div class="card my-3">
                 <div class="card-body">
-                    <h5 class="card-title">Автор: </h5>
-                    <p class="card-text"> </p>
+                    <h5 class="card-title">Автор: <? $message['name'] ?> </h5>
+                    <p class="card-text"> <? $message['message'] ?> </p>
+                    <p class="card-text"> ДАТА: <? $message['created_at'] ?> </p>
                 </div>
             </div>
+            <?php endforeach; ?>
         </div>
     <?php endif; ?>
     </div>
