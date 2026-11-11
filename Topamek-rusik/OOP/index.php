@@ -5,7 +5,7 @@ function debug($data) {
   echo '<pre>' . print_r($data,1) . '<pre>';
 }
 $car =new CarClass('black',4,1800,'bmw');
-$car2 =new CarClass('white',4,200,'opel');
+$car2 =new CarClass('black',1,200,'Granta');
 // $car3 = new CarClass('pink',4,150,'volvo');
 debug($car);
 debug($car2);
