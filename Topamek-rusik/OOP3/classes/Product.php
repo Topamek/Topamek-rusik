@@ -1,38 +1,44 @@
 <?php
-class Product{
+class Product
+{
   public $name;
   public $price;
-  public $cpu;
-  public $numPages;
-  public function __construct($name, $price, $cpu = null, $numPages = null)
+
+  private $discount = 10;
+
+  // public $public = 'Public' ;
+  // ptotected $protected = 'Protected';
+  // private $private = 'Private';
+  public function __construct($name, $price)
   {
     $this->name = $name;
     $this->price = $price;
-    $this->cpu = $cpu;
-    $this->numPages = $numPages;
   }
 
-  public function getCpu(){
-    return $this->cpu;
-  }
-
-  public function getNumPages()
+  public function getName()
   {
-    return $this->numPages;
+    return $this->name;
   }
 
-  public function getProduct($type = 'notebook')
+  public function getPrice()
   {
-    $out = "<br><b> O товаре: </b><br>
-            Наименование: {$this->name}<br>
-            Цена: {$this->price}<br>";
-    if ($type == 'notebook'){
-      $out .= "Процессор: {$this->cpu}<br>";
-    }
-    else {
-      $out .= "Количество страниц: {$this->numPages}<br>";
-    }
+    return $this->price - ($this->discount / 100 * $this->price);
   }
 
-  
+  public function getDiscount():int{
+    return $this->discount;
+  }
+  public function setDiscount(int $discount){
+    return $this->discount = $discount;
+  }
+
+  public function getProduct ()
+  {
+    return
+    "hr О товаре: <br>
+    Наименование: {$this->name} <br>
+    Цена со скидкой: {$this->getPrice()} <br>";
+  }
+
+
 }
