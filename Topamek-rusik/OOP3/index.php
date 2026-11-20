@@ -1,5 +1,7 @@
 <?php 
 require_once 'classes/Product.php';
+require_once 'classes/BookProduct.php';
+require_once 'classes/NotebookProduct.php';
 
 function debug($data)
 {

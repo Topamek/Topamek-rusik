@@ -1,6 +1,6 @@
 <?php 
 
-class NoteboookProduct extends Product {
+class NotebookProduct extends Product {
   public $cpu;
   public function __construct($name, $price, $cpu)
   {

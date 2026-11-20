@@ -17,7 +17,7 @@ class BookProduct extends Product{
   public function getProduct()
   {
     $out = parent::getProduct();
-    $out .= 'Кол-во страниц: {$this->numPages}<br>';
+    $out .= 'Кол-во страниц: {$this->numPages} <br>';
     $out .= 'Скидка: {$this->getDiscount}<br>';
     return $out;
   }
