@@ -18,6 +18,12 @@ class NotebookProduct extends Product {
     $out .= "Процессор: {$this->cpu}<br>";
     return $out;
   }
+
+
+    public function addProduct($name, $price, $a = null)
+  {
+    
+  }
 }
 
 

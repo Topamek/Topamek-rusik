@@ -1,11 +1,14 @@
 <?php 
-class BookProduct extends Product{
+class BookProduct extends Product implements I3D
+{
   public $numPages;
+  public $getDiscount;
   public function __construct($name, $price, $numPages)
   {
     parent:: __construct($name, $price);
     $this->numPages = $numPages;
     $this->setDiscount(10);
+
     // var_dump($this->public);
     // var_dump($this->protected);
     // var_dump($this->private);
@@ -17,9 +20,25 @@ class BookProduct extends Product{
   public function getProduct()
   {
     $out = parent::getProduct();
-    $out .= 'Кол-во страниц: {$this->numPages} <br>';
-    $out .= 'Скидка: {$this->getDiscount}<br>';
+    $out .= "Кол-во страниц: {$this->numPages} <br>";
+    $out .= "Скидка: {$this->getDiscount} <br>";
     return $out;
   }
+
+  public function addProduct($name, $price, $a = null)
+  {
+    var_dump($name);
+    var_dump($price);
+    var_dump($a);
+  }
+
+  public function test()
+  {
+    var_dump(self::TEST2);
+  }
+
+
+
+
 }
  ?>

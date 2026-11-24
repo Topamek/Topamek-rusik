@@ -1,10 +1,9 @@
 <?php
-class Product
+abstract class Product
 {
   public $name;
   public $price;
-
-  private $discount = 10;
+  public $discount = 10;
 
   // public $public = 'Public' ;
   // ptotected $protected = 'Protected';
@@ -35,10 +34,12 @@ class Product
   public function getProduct ()
   {
     return
-    "hr О товаре: <br>
-    Наименование: {$this->name} <br>
-    Цена со скидкой: {$this->getPrice()} <br>";
+    "hr   О товаре: <br>
+      Наименование: {$this->name} <br>
+      Цена со скидкой: {$this->getPrice()} <br>";
   }
+
+abstract protected function addProduct($name, $price, $a = null);
 
 
 }
